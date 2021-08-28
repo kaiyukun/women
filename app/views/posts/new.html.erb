@@ -1,2 +1,10 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h2>新規投稿</h2>
+<%= form_with model:@post do |f| %>
+    <div class="field">
+        <%= f.label :theme %>
+        <%= f.text_field :theme %>
+    </div>
+    <%= f.submit %>
+<% end %>
+
+<%= link_to '投稿一覧へ', posts_path %>

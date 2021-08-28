@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h2>投稿一覧</h2>
+<%= link_to '新規投稿へ', new_post_path %>
+
+<div class="post_index">
+    <% @posts.each do |p| %>
+        <div class="post">
+            テーマ：<%= p.theme %>
+        </div>
+    <% end %>
+</div>
