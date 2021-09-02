@@ -1,0 +1,22 @@
+<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+<h2>メインページ（検索ページ）</h2>
+<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
+<%= link_to '投稿一覧へ', posts_path %>
+
+<h3>ユーザー検索</h3>
+<%= search_form_for @q, url: search_posts_path do |f| %>
+    <%= f.label :address_cont, 'あなたのお住まいの地域は？' %>
+    <%= f.search_field :address_cont %>
+    <br>
+    <%= f.submit '検索' %>
+<% end %>
+
+<h3>ユーザー一覧</h3>
+<% @users.each do |u| %>
+    <div class="user">
+        ニックネーム：<%= u.name %>
+    </div>
+    <div class="user">
+        ステータス：<%= u.job %>
+    </div>
+<% end %>

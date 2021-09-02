@@ -1,14 +1,8 @@
-<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
-<h2>メインページ（検索ページ）</h2>
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to '投稿一覧へ', posts_path %>
-
-<h3>ユーザー一覧</h3>
-<% @users.each do |u| %>
-    <div class="user">
-        ニックネーム：<%= u.name %>
-    </div>
-    <div class="user">
-        ステータス：<%= u.job %>
+<h2>検索結果</h2>
+<% @results.each do |s| %>
+    <div class="result">
+        名前：<%= s.name %>
     </div>
 <% end %>
+
+<%= link_to "メインページへ", main_posts_path %>
