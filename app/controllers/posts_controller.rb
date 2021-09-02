@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_q, only: [:main, :search]
 
   def index
     @posts = Post.all
   end
 
-  def search
+  def main
     @users = User.all
   end
 
@@ -44,8 +45,15 @@ class PostsController < ApplicationController
     post.destroy
   end
 
+  def search
+    @results = @q.result
+  end
+
   private
   def post_params
     params.require(:post).permit(:theme, :content, :image, :link)
+  end
+  def set_q
+    @q = User.ransack(params[:q])
   end
 end
