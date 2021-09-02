@@ -1,6 +1,7 @@
 <h2>投稿一覧</h2>
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <%= link_to '新規投稿へ', new_post_path %>
+<%= link_to 'ユーザー一覧へ', search_posts_path %>
 
 <div class="post_index">
     <% @posts.each do |p| %>
