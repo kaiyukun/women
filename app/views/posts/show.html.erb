@@ -1,2 +1,22 @@
-<h1>Posts#show</h1>
+<h1>投稿詳細#show</h1>
+
 <p>Find me in app/views/posts/show.html.erb</p>
+
+<% if user_signed_in? %>
+    <% if current_user.already_liked?(@post) %>
+        <%= link_to post_like_path(@post), method: :delete do %>
+            <i class="fas fa-heart"></i><%= @post.likes.count %>
+        <% end %>
+    <% else %>
+        <%= link_to post_likes_path(@post), method: :post do %>
+            <i class="fas fa-heart"></i><%= @post.likes.count %>
+        <% end %>
+    <% end %>
+<% else %>
+<i class="fas fa-heart"></i><%= @post.likes.count %>
+<% end %>
+
+<h2>いいねしたユーザー</h2>
+<% @post.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>

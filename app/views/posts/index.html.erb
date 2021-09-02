@@ -8,5 +8,20 @@
         <div class="post">
             テーマ：<%= p.theme %>
         </div>
+        
+        <% if user_signed_in? %>
+            <% if current_user.already_liked?(p) %>
+                <%= link_to post_like_path(id: p.id, post_id: p.id), method: :delete do %>
+                    <i class="fas fa-heart"></i><%= p.likes.count %>
+                <% end %>
+            <% else %>
+                <%= link_to post_likes_path(id: p.id, post_id: p.id), method: :post do %>
+                    <i class="fas fa-heart"></i><%= p.likes.count %>
+                <% end %>
+            <% end %>
+            <% else %>
+                <i class="fas fa-heart"></i><%= p.likes.count %>
+        <% end %>
     <% end %>
 </div>
+                
