@@ -1,8 +1,12 @@
+<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
 <h2>メインページ（検索ページ）</h2>
 
 <h3>ユーザー一覧</h3>
 <% @users.each do |u| %>
     <div class="user">
-        メアド：<%= u.email %>
+        ニックネーム：<%= u.name %>
+    </div>
+    <div class="user">
+        ステータス：<%= u.job %>
     </div>
 <% end %>
