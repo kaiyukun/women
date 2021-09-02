@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get :main
       get :search
     end
+    resources :likes, only: [:create, :destroy]
   end
   root 'posts#main'
 end
