@@ -1,0 +1,8 @@
+<h2>メインページ（検索ページ）</h2>
+
+<h3>ユーザー一覧</h3>
+<% @users.each do |u| %>
+    <div class="user">
+        メアド：<%= u.email %>
+    </div>
+<% end %>
