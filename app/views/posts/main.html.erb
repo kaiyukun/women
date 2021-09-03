@@ -3,13 +3,28 @@
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <%= link_to '投稿一覧へ', posts_path %>
 
+
+
 <h3>ユーザー検索</h3>
-<%= search_form_for @q, url: search_posts_path do |f| %>
-    <%= f.label :address_cont, 'あなたのお住まいの地域は？' %>
-    <%= f.search_field :address_cont %>
+<%= search_form_for @q, url: main_posts_path do |f| %>
+    <div class="search_field">
+        <%= f.label :address_cont, 'あなたのお住まいの地域は？' %>
+        <%= f.search_field :address_cont %>
+    </div>
+    <br>
+    <div class="search_field">
+        <%= f.label :job_cont, 'あなたはエンジニアですか？' %>
+        <%= f.search_field :job_cont %>
+    </div>
+    <br>
+    <div class="search_field">
+        <%= f.label :genre_cont, 'どんなエンジニアですか？' %>
+        <%= f.search_field :genre_cont %>
+    </div>
     <br>
     <%= f.submit '検索' %>
 <% end %>
+
 
 <h3>ユーザー一覧</h3>
 <% @users.each do |u| %>
@@ -20,3 +35,6 @@
         ステータス：<%= u.job %>
     </div>
 <% end %>
+
+
+

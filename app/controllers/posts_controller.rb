@@ -7,7 +7,13 @@ class PostsController < ApplicationController
   end
 
   def main
-    @users = User.all
+    if params[:q] == nil
+      @users = User.all
+    elsif params[:q] == ""
+      @users = User.all
+    else
+      @users = @q.result
+    end
   end
 
   def new
