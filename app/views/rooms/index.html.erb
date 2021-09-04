@@ -3,7 +3,7 @@
 
 <% @anotherEntries.each do |e| %>
     <div class="dm_index">
-        <%= link_to e.user.name, room_path(e.room_id)%>
+        <%= link_to e.user.name, room_path(e.room_id) %>（<%= Notification.where(visitor_id: e.user.id).count %>）
     </div>
 <% end %>
 

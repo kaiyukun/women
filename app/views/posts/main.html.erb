@@ -2,7 +2,11 @@
 <h2>メインページ（検索ページ）</h2>
 <%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
 <%= link_to '投稿一覧へ', posts_path %>
-<%= link_to 'DM一覧へ', rooms_path %>
+<%= link_to (rooms_path) do %>
+    <i class="far fa-comment-dots"></i><%= @notifications.count %>
+<% end %>
+<%= link_to '通知一覧へ', notifications_path %>
+<%= link_to 'マイページへ', user_path(current_user.id)%>
 
 
 

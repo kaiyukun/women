@@ -14,6 +14,8 @@ class PostsController < ApplicationController
     else
       @users = @q.result
     end
+
+    @notifications = Notification.where(visited_id: current_user.id)
   end
 
   def new
