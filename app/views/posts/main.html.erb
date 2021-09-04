@@ -29,7 +29,7 @@
 <h3>ユーザー一覧</h3>
 <% @users.each do |u| %>
     <div class="user">
-        ニックネーム：<%= u.name %>
+        ニックネーム：<%= link_to u.name, user_path(u.id) %>
     </div>
     <div class="user">
         ステータス：<%= u.job %>
