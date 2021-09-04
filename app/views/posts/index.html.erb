@@ -1,12 +1,37 @@
+<header class="header">
+    <div class="header__inner">
+        <div class="logo">
+            <span class="logo__w">W</span>
+            <span class="logo__community">community</span>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li">
+                    <%= link_to 'Home', main_posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'OutGoing', posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'MyPage', user_path(current_user.id)%> 
+                </li>
+                <li class="header__li">
+                    <%= link_to (rooms_path) do %>
+                        DM<i class="far fa-comment-dots"></i><span class="noti_count"><%= @notifications.count %></span>
+                    <% end %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'notifications', notifications_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 <h2>投稿一覧</h2>
-<%= button_to 'ログアウト', destroy_user_session_path, method: :delete %>
-<%= link_to '新規投稿へ', new_post_path %>
-<%= link_to 'ユーザー一覧へ', search_posts_path %>
-
-<% if user_signed_in? %>
-<%= link_to "マイページへ", user_path(current_user.id) %>　
-<% end %>
-
 <div class="post_index">
     <% @posts.each do |p| %>
         <div class="post">
