@@ -4,6 +4,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @notifications = Notification.where(visited_id: current_user.id)
   end
 
   def main

@@ -1,6 +1,35 @@
-<h1>投稿詳細#show</h1>
-
-<p>Find me in app/views/posts/show.html.erb</p>
+<header class="header">
+    <div class="header__inner">
+        <div class="logo">
+            <span class="logo__w">W</span>
+            <span class="logo__community">community</span>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li">
+                    <%= link_to 'Home', main_posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'OutGoing', posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'MyPage', user_path(current_user.id)%> 
+                </li>
+                <li class="header__li">
+                    <%= link_to (rooms_path) do %>
+                        DM<i class="far fa-comment-dots"></i><span class="noti_count"><%= @notifications.count %></span>
+                    <% end %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'notifications', notifications_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <% if user_signed_in? %>
     <% if current_user.already_liked?(@post) %>

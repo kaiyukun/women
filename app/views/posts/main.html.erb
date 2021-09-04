@@ -1,10 +1,36 @@
-<%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
-<%= link_to '投稿一覧へ', posts_path %>
-<%= link_to (rooms_path) do %>
-    <i class="far fa-comment-dots"></i><%= @notifications.count %>
-<% end %>
-<%= link_to '通知一覧へ', notifications_path %>
-<%= link_to 'マイページへ', user_path(current_user.id)%>
+<header class="header">
+    <div class="header__inner">
+        <div class="logo">
+            <span class="logo__w">W</span>
+            <span class="logo__community">community</span>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li">
+                    <%= link_to 'Home', main_posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'OutGoing', posts_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'MyPage', user_path(current_user.id)%> 
+                </li>
+                <li class="header__li">
+                    <%= link_to (rooms_path) do %>
+                        DM<i class="far fa-comment-dots"></i><span class="noti_count"><%= @notifications.count %></span>
+                    <% end %>
+                </li>
+                <li class="header__li">
+                    <%= link_to 'notifications', notifications_path %>
+                </li>
+                <li class="header__li">
+                    <%= link_to "LogOut", destroy_user_session_path, method: :delete %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 
 <h2 class="map_h2">マップから探す</h2>
 
@@ -83,11 +109,12 @@
     <div class="main_index">
         <% @users.each do |u| %>
             <div class="main_user_box">
+                <%= link_to"", user_path(u.id) %>
                 <div class="up_block"></div>
                 <%= image_tag u.image_url, class: "main_user_image" if u.image? %>
                 <div class="down_block">
                     <div class="main_user_name">
-                        <%= link_to u.name, user_path(u.id) %>
+                        <%= u.name%>
                     </div>
                     <div class="main_user_detail">
                         <div class="main_user_address">
