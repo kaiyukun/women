@@ -17,8 +17,9 @@
 
   <div class="field">
     <%= f.label :image %>プロフィール画像<br />
-    <%= f.file_field :image %>
+    <%= f.file_field :image, id:"pac-input" %>
   </div>
+    <div id="image"></div>
 
   <div class="field">
     <%= f.label :address %>お住まいの地域<br />
@@ -54,3 +55,30 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+<style>
+    #image{
+        background-color: rgba(241, 230, 220, 0.661);
+        height: 130px;
+        width: 130px;
+        border-radius: 50%; 
+    }
+    img{
+        height: 130px;
+        width: 130px;
+        border-radius: 50%;
+    }
+</style>
+
+<script>
+    let image = document.getElementById("pac-input");
+    image.addEventListener("change", function(evt){
+        let file = evt.target.files;
+        let reader = new FileReader();
+        reader.readAsDataURL(file[0]);
+        reader.onload = function(){
+            let dataUrl = reader.result;
+            document.getElementById("image").innerHTML = "<img src='" + dataUrl + "'>";
+        }
+    },false);
+</script>
