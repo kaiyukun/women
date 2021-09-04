@@ -1,0 +1,34 @@
+@import 'modules/button';
+
+.top {
+    &__main {
+        position: relative;
+
+        & > img {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -10;
+        }
+
+        & > h1 {
+            position: absolute;
+            top: 25%;
+            left: 100px;
+        }
+
+        & > p {
+            position: absolute;
+            top: 40%;
+            left: 100px;
+        }
+
+    }
+
+    &__btn {
+        position: absolute;
+        top: 60%;
+        left: 200px;
+        text-align: center;
+    }
+}

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :posts do 
     collection do
+      get :top
       get :main
       get :search
     end
