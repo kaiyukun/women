@@ -6,6 +6,9 @@ class User < ApplicationRecord
   
   has_many :posts
   has_many :posts, dependent: :destroy
+  validates :name, presence: true
+  validates :profile, length: { maximum: 200 }
+
   has_many :comments, dependent: :destroy
 
   has_many :likes, dependent: :destroy
