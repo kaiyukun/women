@@ -2,6 +2,16 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @currentEntries = current_user.entries
+    myRoomIds = []
+
+    @currentEntries.each do |entry|
+      myRoomIds << entry.room.id
+    end
+
+    @users = User.where.not(id: current_user.id)
+
+    @anotherEntries = Entry.where(room_id: myRoomIds, user_id: @users.ids)
   end
 
   def show
@@ -22,3 +32,5 @@ class RoomsController < ApplicationController
     redirect_to "/rooms/#{@room.id}"
   end
 end
+
+
