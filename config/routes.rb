@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   get 'rooms/index'
   get 'rooms/show'
   devise_for :users
@@ -14,5 +15,6 @@ Rails.application.routes.draw do
   end
   resources :messages, :only => [:create]
   resources :rooms, :only => [:create, :show, :index]
+  resources :notifications, :only => [:index, :destroy]
   root 'posts#main'
 end
