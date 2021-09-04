@@ -3,11 +3,17 @@
 <%= link_to '新規投稿へ', new_post_path %>
 <%= link_to 'ユーザー一覧へ', search_posts_path %>
 
+<% if user_signed_in? %>
+<%= link_to "マイページへ", user_path(current_user.id) %>　
+<% end %>
+
 <div class="post_index">
     <% @posts.each do |p| %>
         <div class="post">
             テーマ：<%= p.theme %>
             <%= link_to "詳細へ", post_path(p.id) %>
+            <%= link_to "削除する", post_path(p.id), method: :delete %>
+            <a href="/users/<%= p.user.id %>"><%= p.user.name %></a>
         </div>
         
         <% if user_signed_in? %>
