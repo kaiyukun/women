@@ -31,7 +31,8 @@
     </div>
 </header>
 
-<h1>users#show</h1>
+<div class="user_show_bgi"></div>
+
 <p>名前 : <%= @user.name %></p>
 プロフィール画像<%= image_tag @user.image_url, size: "250x200" if @user.image? %>
 <p>メールアドレス : <%= @user.email %></p>
@@ -73,4 +74,3 @@
   <%= p.theme %>
 <% end %>
 
-<%= link_to "投稿一覧に戻る", posts_path %>
