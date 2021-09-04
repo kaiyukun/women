@@ -4,8 +4,33 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>メール<br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>ニックネーム<br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>プロフィール画像<br />
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address %>お住まいの地域<br />
+    <%= f.text_field :address, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :job %>エンジニアですか？<br />
+    <%= f.select :job, [["はい", "エンジニア"], ["いいえ", "エンジニアではない"]], include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :genre %>どんな種類のエンジニアですか？<br />
+    <%= f.select :genre, [["webアプリケーション開発", "webアプリケーション開発"], ["モバイルアプリ開発エンジニア", "モバイルアプリ開発エンジニア"], ["ゲーム開発エンジニア", "ゲーム開発エンジニア"], ["インフラエンジニア", "インフラエンジニア"], ["エンジニアではないです", "エンジニアではないです"]], include_blank: "選択して下さい" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
