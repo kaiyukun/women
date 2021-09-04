@@ -61,3 +61,5 @@ gem 'dotenv-rails'
 
 gem 'jquery-rails'
 
+gem 'carrierwave' , '~> 1.3' ,  '>= 1.3.1'
+gem 'cloudinary'
