@@ -1,0 +1,36 @@
+@import 'modules/button';
+
+.sign {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    & > img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -10;
+    }
+  
+    &__main {
+      position: absolute;
+      top: 10%;
+      left: 30%;
+      background-color: rgba($color: #FFFFFF, $alpha: 0.7);
+      width: 600px;
+      height: 650px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 50px;
+      border-radius: 10%;
+    }
+  
+    &__field {
+      margin-bottom: 20px;
+    }
+}
+
+.btn {
+    background-color: white;
+    padding: 5px 20px;
+}
+  

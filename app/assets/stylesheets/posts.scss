@@ -1,3 +1,43 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@import 'modules/button';
+
+/* ---------- new ---------- */
+.post {
+    & > h2 {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    &__main {
+        position: relative;
+        width: 600px;
+        height: 600px;
+        background-color: #FFF2B1;
+        border-radius: 20%;
+        margin: 0 auto;
+    }
+
+    &__area {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+        width: 520px;
+        height: 450px;
+        border: none;
+        background-color: #FFF2B1;
+        overflow: hidden;
+    }
+}
+
+// .btn {
+//     background-color: #FAE998;
+//     padding: 5px 20px;
+//     position: absolute;
+//     top: 500px;
+//     left: 45%;
+// }
+
+/* ---------- new ---------- */

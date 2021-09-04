@@ -1,4 +1,25 @@
+<%= stylesheet_link_tag 'header', :media => "all" %>
+<%= stylesheet_link_tag 'footer', :media => "all" %>
 <%= stylesheet_link_tag 'top', :media => "all" %>
+
+<header class="header">
+    <div class="header__inner">
+        <div class="logo">
+            <span class="logo__w">W</span>
+            <span class="logo__community">community</span>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li"><a href="#">Service</a></li>
+                <li class="header__li"><a href="#">Contact</a></li>
+                <li class="header__li">
+                    <%= link_to "LogIn", posts_path %>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
 
 <div class="wrapper">
     <div class="top">
@@ -56,5 +77,19 @@
             </div>
         </div>
     </div>
-
 </div>
+
+<footer class="footer">
+    <div class="logo">
+        <span class="logo__w">W</span>
+        <span class="logo__community">community</span>
+    </div>
+    <nav class="footer__nav">
+        <ul class="footer__ul">
+            <li class="footer__li"><a href="#">Top</a></li>
+            <li class="footer__li"><a href="#">Service</a></li>
+            <li class="footer__li"><%= link_to "LogIn", posts_path %></li>
+        </ul>
+        <div class="footer__copyright">&copy; Gankochan</div>
+    </nav>
+</footer>

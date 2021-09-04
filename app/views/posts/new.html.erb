@@ -1,10 +1,14 @@
-<h2>新規投稿</h2>
-<%= form_with model:@post do |f| %>
-    <div class="field">
-        <%= f.label :theme %>
-        <%= f.text_field :theme %>
-    </div>
-    <%= f.submit %>
-<% end %>
 
+<div class="post">
+    <h2>新規投稿</h2>
+    <div class="post__main">
+        <%= form_with model:@post do |f| %>
+            <div class="field">
+                <%= f.label :theme %>
+                <%= f.text_area :theme, class: "post__area" %>
+            </div>
+            <%= f.submit :投稿, class: "btn shadow" %>
+        <% end %>
+    </div>
+</div>
 <%= link_to '投稿一覧へ', posts_path %>

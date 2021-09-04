@@ -1,0 +1,40 @@
+.footer {
+  padding: 60px 0;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1070px;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  &__li {
+    padding: 0;
+    margin: 10px;
+
+    & > a {
+      color: black;
+    }
+  }
+
+  & .logo {
+    font-size: 38px;
+    justify-content: center;
+
+    &__w {
+      color: pink;
+    }
+  }
+}
