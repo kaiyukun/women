@@ -28,14 +28,16 @@
     </div>
 </header>
 
-<h2>投稿一覧</h2>
-<div class="post_index">
+<div class="list">
+    <h2>投稿一覧</h2>
     <% @posts.each do |p| %>
-        <div class="post">
+        <div class="list__main">
+            <div class="list__user">
+                <a href="/users/<%= p.user.id %>"><%= p.user.name %></a>
+                <%= link_to "削除する", post_path(p.id), method: :delete %>
+            </div>
             テーマ：<%= p.theme %>
             <%= link_to "詳細へ", post_path(p.id) %>
-            <%= link_to "削除する", post_path(p.id), method: :delete %>
-            <a href="/users/<%= p.user.id %>"><%= p.user.name %></a>
         </div>
         
         <% if user_signed_in? %>

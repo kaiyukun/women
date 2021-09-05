@@ -2,7 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+/* ===== list ===== */
+
+.dmlist {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow: hidden;
+
+  &__link {
+    margin-bottom: 30px;
+  }
+
+  &__index {
+    margin-left: 30px;
+  }
+
+  &__img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 7px solid white;
+  }
+}
+
+/* ===== list ===== */
+
 /* ===== room ===== */
+
 .dmroom {
   width: 80%;
   height: 100vh;
@@ -16,10 +44,33 @@
     margin-bottom: 30px;
   }
 
+  &__message {
+    overflow: scroll;
+    height: 550px;
+  }
+
   &__form {
     position: fixed;
     top: 80%;
     left: 10%;
+    width: 80%;
+    height: 100px;
+    background-color: #fff;
+  }
+
+  &__read {
+    color: #000;
+    margin: 10px;
+    text-align: right;
+    width: fit-content;
+    margin: 10px 0 0 auto;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    box-sizing: border-box;
+    font-size: 14px;
   }
 }
 
