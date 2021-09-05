@@ -1,6 +1,19 @@
 <%= stylesheet_link_tag 'signup', :media => "all" %>
 
 <div class="sign">
+<header class="header">
+    <div class="header__inner">
+        <div class="logo">
+            <span class="logo__w">W</span>
+            <span class="logo__community">community</span>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                
+            </ul>
+        </nav>
+    </div>
+</header>
   
   <div class="sign__main">
     <h2>Sign up</h2>
@@ -8,25 +21,29 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "users/shared/error_messages", resource: resource %>
 
-      <div class="field">
-        <%= f.label :email %>メール<br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="signup_email form-floating mb-3">
+        <%= f.email_field :email, class:"form-control", id:"floatingInput", placeholder:"name@example.com" %>
+        <label for="floatingInput">メールアドレス</label>
       </div>
 
-      <div class="field">
-        <%= f.label :name %>ニックネーム<br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      <div class="signup_name form-floating mb-3">
+        <%= f.text_field :name, class:"form-control", id:"floatingInput", placeholder:"Name" %>
+        <label for="floatingInput">ニックネーム</label>
       </div>
 
-      <div class="field">
-        <%= f.label :image %>プロフィール画像<br />
-        <%= f.file_field :image, id:"pac-input" %>
+      <div class="signup_img">
+        <%= f.label :image, "プロフィール画像"%><br />
+        <%= f.file_field :image, id:"pac-input", class:"form-control" %>
+        <div id="signup_image"></div>
       </div>
-      <div id="image"></div>
 
-      <div class="field">
-        <%= f.label :address %>お住まいの地域<br />
-        <%= f.select :address, [
+      <div class="signup_profile form-floating">
+        <%= f.text_area :profile, class:"form-control", placeholder:"Leave a comment here", id:"floatingTextarea", style:"height: 100px" %>
+        <label for="floatingTextarea">Comments</label>
+      </div>
+
+      <div class="signup_address">
+        <%= f.select :address,[
           ["北海道", "北海道"],
           ["青森県", "青森県"],
           ["岩手県", "岩手県"],
@@ -74,30 +91,30 @@
           ["宮崎県", "宮崎県"],
           ["鹿児島県", "鹿児島県"],
           ["沖縄県", "沖縄県"]
-        ], include_blank: "選択してください" %>
+        ], include_blank: "どこにお住まいですか？" %>
       </div>
 
-      <div class="field">
-        <%= f.label :job %>エンジニアですか？<br />
-        <%= f.select :job, [["はい", "現役エンジニア"], ["いいえ", "エンジニアではない"]], include_blank: "選択して下さい" %>
+      <div class="signup_job">
+        <%= f.select :job, [["はい", "現役エンジニア"], ["いいえ", "エンジニアではない"]], include_blank: "あなたは現在エンジニアですか？" %>
       </div>
 
-      <div class="field">
-        <%= f.label :genre %>どんな種類のエンジニアですか？<br />
-        <%= f.select :genre, [["webアプリケーション開発", "webアプリケーション開発"], ["モバイルアプリ開発エンジニア", "モバイルアプリ開発エンジニア"], ["ゲーム開発エンジニア", "ゲーム開発エンジニア"], ["インフラエンジニア", "インフラエンジニア"], ["エンジニアではないです", "エンジニアではないです"]], include_blank: "選択して下さい" %>
+      <div class="signup_genre">
+        <%= f.select :genre, [["webアプリケーション開発", "webアプリケーション開発"], ["モバイルアプリ開発エンジニア", "モバイルアプリ開発エンジニア"], ["ゲーム開発エンジニア", "ゲーム開発エンジニア"], ["インフラエンジニア", "インフラエンジニア"], ["エンジニアではないです", "エンジニアではないです"]], include_blank: "エンジニアの方はその種類をお選びください" %>
       </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="signup_history form-floating mb-3">
+        <%= f.number_field :history,class:"form-control", id:"floatingInput", placeholder:"history", style:"width: 500px" %><span>年</span>
+        <label for="floatingInput">エンジニア歴</label>
       </div>
 
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="signup_password form-floating">
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div class="signup_password2 form-floating">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+        <label for="floatingPassword">Password(conrirmation)</label>
       </div>
 
       <div class="actions">
@@ -110,11 +127,12 @@
 </div>
 
 <style>
-  #image{
+  #signup_image{
   background-color: rgba(241, 230, 220, 0.661);
   height: 130px;
   width: 130px;
   border-radius: 50%; 
+  margin: 0 auto;
   }
   img{
     height: 130px;
@@ -131,7 +149,7 @@
         reader.readAsDataURL(file[0]);
         reader.onload = function(){
             let dataUrl = reader.result;
-            document.getElementById("image").innerHTML = "<img src='" + dataUrl + "'>";
+            document.getElementById("signup_image").innerHTML = "<img src='" + dataUrl + "'>";
         }
     },false);
 </script>
