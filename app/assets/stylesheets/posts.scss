@@ -179,3 +179,36 @@
 }
 
 /* ---------- index ---------- */
+
+/* ---------- show ---------- */
+
+.postshow {
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow: hidden;
+  margin-top: 100px;
+
+  &__link {
+    margin-bottom: 20px;
+  }
+  
+  &__main {
+    border: solid 2px #fff2b1;
+    padding: 20px;
+  }
+
+  &__good {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.good-count {
+  &__list {
+    list-style: none;
+    margin-bottom: 10px;
+  }
+}
+
+/* ---------- show ---------- */
