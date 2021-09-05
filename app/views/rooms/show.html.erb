@@ -17,16 +17,6 @@
     <div class="dmroom__main">
         <div class="dmroom__message">
             <% @messages.each do |m| %>
-                <% if m.user_id != current_user.id %>
-                    <strong><%= m.user.name %>さん</strong>
-                    <% if m.notifications.exists? %>
-                        <%= link_to '既読にする', notification_path(m.id), method: :delete %>
-                    <% else %>
-                        <p>既読ずみ</p>
-                    <% end %>
-                    <hr>
-                <% end %>
-
                 <% if m.user_id == current_user.id %>
                     <div class="current_user">
                         <small class="current_user"><%= m.user.name %></small>
@@ -37,6 +27,14 @@
                         <strong class="visited_user"><%= m.body %></strong>
                         <small class="visited_user"><%= m.user.name %>さん</small>
                     </div>
+                <% end %>
+
+                <% if m.user_id != current_user.id %>
+                    <% if m.notifications.exists? %>
+                        <%= link_to '既読にする', notification_path(m.id), method: :delete, class: "dmroom__read"%>
+                    <% else %>
+                        <p class="dmroom__read">既読</p>
+                    <% end %>
                 <% end %>
             <% end %>
         </div>

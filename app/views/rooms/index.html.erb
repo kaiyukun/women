@@ -1,10 +1,18 @@
 
-<h2><%= current_user.name %>のDM一覧</h2>
-
-<% @anotherEntries.each do |e| %>
-    <div class="dm_index">
-        <%= link_to e.user.name, room_path(e.room_id) %>（<%= Notification.where(visitor_id: e.user.id).count %>）
+<div class="dmlist">
+    <div class="dmlist__link">
+        <%= link_to "＜ メインページへ", main_posts_path %>
     </div>
-<% end %>
 
-<%= link_to "メインページへ", main_posts_path %>
+    <h2><%= current_user.name %>のDM一覧</h2>
+    <div class="dmlist__main">
+        <% @anotherEntries.each do |e| %>
+            <hr>
+            <div class="dmlist__index">
+                <%= image_tag e.user.image_url, class:"dmlist__img" if e.user.image? %>
+                <%= link_to e.user.name, room_path(e.room_id) %>（<%= Notification.where(visitor_id: e.user.id).count %>）
+            </div>
+        <% end %>
+    </div>
+</div>
+
