@@ -10,10 +10,12 @@
         </div>
         <nav class="header__nav">
             <ul class="header__ul">
-                <li class="header__li"><a href="#">Service</a></li>
+                <li class="header__li">
+                    <%= link_to "Main", main_posts_path %>
+                </li>
                 <li class="header__li"><a href="#">Contact</a></li>
                 <li class="header__li">
-                    <%= link_to "LogIn", posts_path %>
+                    <%= link_to "LogIn", main_posts_path %>
                 </li>
             </ul>
         </nav>
