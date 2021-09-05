@@ -4,12 +4,9 @@
   position: relative;
   margin: 0;
   padding: 0;
-  & > img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -10;
-  }
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
 
   &__main {
     position: absolute;
@@ -17,11 +14,18 @@
     left: 30%;
     background-color: rgba($color: #FFFFFF, $alpha: 0.7);
     width: 600px;
-    height: 500px;
+    height: 480px;
     margin: 0 auto;
     text-align: center;
     padding: 50px;
-    border-radius: 10%;
+
+    h2{
+      margin-bottom: 20px;
+    }
+
+    .signup_password{
+      margin-bottom: 1rem!important;
+    }
   }
 
   &__field {

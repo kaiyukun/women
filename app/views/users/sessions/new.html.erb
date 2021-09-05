@@ -1,19 +1,20 @@
 <%= stylesheet_link_tag 'login', :media => "all" %>
 
 <div class="login">
-  <img src="/assets/connect.jpg">
+  
   <div class="login__main">
-    <h2>ログイン</h2>
+    <h2>Log In</h2>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="login__field">
-        <h2>メール </h2>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      
+      <div class="signup_email form-floating mb-3">
+        <%= f.email_field :email, class:"form-control", id:"floatingInput", placeholder:"name@example.com" %>
+        <label for="floatingInput">メールアドレス</label>
       </div>
 
-      <div class="login__field">
-        <h2>パスワード </h2>
-        <%= f.password_field :password, autocomplete: "off" %>
+      <div class="signup_password form-floating">
+        <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
+        <label for="floatingPassword">パスワード</label>
       </div>
 
       <% if devise_mapping.rememberable? -%>

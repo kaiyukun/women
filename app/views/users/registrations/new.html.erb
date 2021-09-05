@@ -39,7 +39,7 @@
 
       <div class="signup_profile form-floating">
         <%= f.text_area :profile, class:"form-control", placeholder:"Leave a comment here", id:"floatingTextarea", style:"height: 100px" %>
-        <label for="floatingTextarea">Comments</label>
+        <label for="floatingTextarea">コメント</label>
       </div>
 
       <div class="signup_address">
@@ -109,12 +109,14 @@
 
       <div class="signup_password form-floating">
         <%= f.password_field :password, autocomplete: "new-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
-        <label for="floatingPassword">Password</label>
+        <label for="floatingPassword">パスワード</label>
+        （6文字以上）
       </div>
 
       <div class="signup_password2 form-floating">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control", id:"floatingPassword", placeholder:"Password" %>
-        <label for="floatingPassword">Password(conrirmation)</label>
+        <label for="floatingPassword">パスワード(確認用)</label>
+        （6文字以上）
       </div>
 
       <div class="actions">
