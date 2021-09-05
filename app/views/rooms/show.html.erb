@@ -1,30 +1,51 @@
-<div class="user-in">
-<% @entries.each do |e| %>
-    <h3><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong></h3>
-<% end %>
-<p>2人のDM❤️</p>
-</div>
-
-<div class="dmMain">
-    <% @messages.each do |m| %>
-        <p><%= m.body %></p>
-        <% if m.user_id != current_user.id %>
-            <% if m.notifications.exists? %>
-                <%= link_to '既読にする', notification_path(m.id), method: :delete %>
-            <% else %>
-                <p>既読ずみ</p>
-            <% end %>
-            <small><%= m.user.name %>さん</small><hr>
+<div class="dmroom">
+    <div class="dmroom__link">
+        <%= link_to "＜ DM一覧に戻る", rooms_path %>
+        <%= link_to "メインページに戻る", main_posts_path %>
+    </div>
+    <%
+=begin%>
+ <div class="dmroom__user-in">
+        <% @entries.each do |e| %>
+            <h3><strong><a href="/users/<%= e.user.id %>"><%= e.user.name%></a></strong></h3>
         <% end %>
-    <% end %>
+        <p>2人のDM❤️</p>
+    </div> 
+<%
+=end%>
 
-    <%= form_for @message do |f| %>
-    <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
-    <%= f.hidden_field :room_id, :value => @room.id %>
-    <br>
-    <%= f.submit "送信する" %>
-    <% end %>
+    <div class="dmroom__main">
+        <div class="dmroom__message">
+            <% @messages.each do |m| %>
+                <% if m.user_id != current_user.id %>
+                    <strong><%= m.user.name %>さん</strong>
+                    <% if m.notifications.exists? %>
+                        <%= link_to '既読にする', notification_path(m.id), method: :delete %>
+                    <% else %>
+                        <p>既読ずみ</p>
+                    <% end %>
+                    <hr>
+                <% end %>
+
+                <% if m.user_id == current_user.id %>
+                    <div class="current_user">
+                        <small class="current_user"><%= m.user.name %></small>
+                        <strong class="current_user"><%= m.body %></strong>
+                    </div>
+                <% else %>
+                    <div class="visited_user">
+                        <strong class="visited_user"><%= m.body %></strong>
+                        <small class="visited_user"><%= m.user.name %>さん</small>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <div class="dmroom__form">
+            <%= form_for @message do |f| %>
+                <%= f.text_field :body, :placeholder => "メッセージを入力して下さい" , :size => 100 %>
+                <%= f.hidden_field :room_id, :value => @room.id %>
+                <%= f.submit "送信する" %>
+            <% end %>
+        </div>
+    </div>
 </div>
-
-<%= link_to "DM一覧に戻る", rooms_path %>
-<%= link_to "メインページに戻る", main_posts_path %>
