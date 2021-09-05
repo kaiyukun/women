@@ -4,7 +4,14 @@
 @import "modules/button";
 
 /* ---------- new ---------- */
-.post {
+.new {
+  margin-top: 100px;
+
+  &__link {
+    width: 60%;
+    margin: 0 auto;
+  }
+
   & > h2 {
     text-align: center;
     margin: 50px 0;
@@ -29,6 +36,15 @@
     background-color: #fff2b1;
     overflow: hidden;
   }
+
+  &__btn {
+    position: absolute;
+    top: 550px;
+    left: 45%;
+    padding: 5px 20px;
+    background-color: #fff;
+    border: 1px solid $cBlack;
+  }
 }
 
 // .btn {
@@ -43,8 +59,8 @@
 
 /* ---------- main ---------- */
 
-.noti_count{
-    color: red;
+.noti_count {
+  color: red;
 }
 .map_h2 {
   text-align: center;
@@ -85,54 +101,54 @@
   flex-wrap: wrap;
 }
 .main_user_box {
-    a{
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        transition: 0.5s;
-        z-index: 10;
+  a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transition: 0.5s;
+    z-index: 10;
+  }
+  a:hover {
+    opacity: 0.1;
+    background-color: #000000;
+    transition: 0.5s;
+  }
+  border: 1px solid black;
+  position: relative;
+  width: 27%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  .up_block {
+    height: 43%;
+    background-color: aqua;
+  }
+  .main_user_image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+  }
+  .down_block {
+    height: 57%;
+    padding-top: 20%;
+    .main_user_name {
+      text-align: center;
+      margin-bottom: 10px;
+      color: black;
+      font-family: "TsukuARdGothic-Regular", sans-serif;
+      font-size: larger;
+      font-weight: bold;
     }
-    a:hover{
-        opacity: 0.1;
-        background-color: #000000;
-        transition: 0.5s;
+    .main_user_detail {
+      padding-left: 20%;
     }
-    border: 1px solid black;
-    position: relative;
-    width: 27%;
-    margin-right: 5%;
-    margin-bottom: 20px;
-    .up_block {
-        height: 43%;
-        background-color: aqua;
-    }
-    .main_user_image {
-        width: 90px;
-        height: 90px;
-        border-radius: 50%;
-        position: absolute;
-        top: 43%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1;
-    }
-    .down_block {
-        height: 57%;
-        padding-top: 20%;
-        .main_user_name {
-            text-align: center;
-            margin-bottom: 10px;
-            color: black;
-            font-family: "TsukuARdGothic-Regular", sans-serif;
-            font-size: larger;
-            font-weight: bold;
-        }
-        .main_user_detail {
-        padding-left: 20%;
-        }
-    }
+  }
 }
 /* ---------- main ---------- */
 
@@ -144,6 +160,11 @@
   padding: 20px 0;
   overflow: hidden;
   margin-top: 100px;
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+  }
 
   &__main {
     border: solid 2px #fff2b1;
