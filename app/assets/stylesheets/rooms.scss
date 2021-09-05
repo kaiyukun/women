@@ -1,3 +1,57 @@
 // Place all the styles related to the rooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* ===== room ===== */
+.dmroom {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 20px 0;
+  overflow: hidden;
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    position: fixed;
+    top: 80%;
+    left: 10%;
+  }
+}
+
+.current_user {
+  color: #000;
+  text-align: left;
+  background-color: #fff2b1;
+  width: fit-content;
+  margin: 10px auto 0 0;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.visited_user {
+  color: #000;
+  margin: 10px;
+  background-color: #fae998;
+  text-align: right;
+  width: fit-content;
+  margin: 10px 0 0 auto;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+/* ===== room ===== */
