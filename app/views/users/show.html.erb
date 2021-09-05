@@ -36,45 +36,55 @@
     <%= image_tag @user.image_url, class:"user_show_img" if @user.image? %>
     <div class="user_show_first">
         <p class="user_show_name"><%= @user.name %></p>
+        <% if current_user.id == @user.id %>
+            <%= link_to "プロフィールを編集する", edit_user_registration_path %>
+        <% end %>
         <p class="user_show_profile"><%= @user.profile %></p>
+    </div>
+    <div class="user_show_dm">
+        <% if @user.id == current_user.id %>
+            <%= @msg %>
+        <% else %>
+            <% if @isRoom == true %>
+                <%= button_to 'DMへ', room_path(@roomId), class:"btn btn-outline-secondary" %>
+            <% else %>
+                <%= form_for @room do |f| %>
+                    <%= fields_for @entry do |e|%>
+                        <% e.hidden_field :user_id, value: @user.id %>
+                    <% end %>
+                <%= f.submit "メッセージをおくる"%>
+                <% end %>
+            <% end %>
+        <% end %>
     </div>
 </div>
 
-<p>メールアドレス : <%= @user.email %></p>
-<p>お住まいの地域 : <%= @user.address %></p>
-<p>エンジニア : <%= @user.job %></p>
-<p>種類 : <%= @user.genre %></p>
-
-<div class="dm">
-  <% if @user.id == current_user.id %>
-      <%= @msg %>
-  <% else %>
-      <% if @isRoom == true %>
-          <p><%= link_to 'DMへ', room_path(@roomId) %></p>
-      <% else %>
-          <%= form_for @room do |f| %>
-              <%= fields_for @entry do |e|%>
-                  <% e.hidden_field :user_id, value: @user.id %>
-              <% end %>
-          <%= f.submit "DMを開始する"%>
-          <% end %>
-      <% end %>
-  <% end %>
+<div class="user_show_center">
+    <div class="user_show_detail">
+        <p>メールアドレス : <%= @user.email %></p>
+        <p>お住まいの地域 : <%= @user.address %></p>
+        <p>エンジニア : <%= @user.job %></p>
+        <p>種類 : <%= @user.genre %></p>
+    </div>
 </div>
 
-<% if current_user.id == @user.id %>
-  <%= link_to "編集する", edit_user_registration_path %>
-<% end %>
 
-<h2>ユーザーの投稿一覧</h2>
-<% @user.posts.each do |p| %>
-  <%= p.user.name %>
-  <%= p.theme %>
-<% end %>
+<div class="user_show_bottom">
 
-<h2>ユーザーがいいねした投稿一覧</h2>
-<% @user.liked_posts.each do |p| %>
-  <%= p.user.name %>
-  <%= p.theme %>
-<% end %>
+    <div class="user_show_index">
+        <h2>ユーザーの投稿一覧</h2>
+        <% @user.posts.each do |p| %>
+            <%= p.user.name %>
+            <%= p.theme %>
+        <% end %>
+    </div>
 
+    <div class="user_show_like">
+        <h2>ユーザーがいいねした投稿一覧</h2>
+        <% @user.liked_posts.each do |p| %>
+            <%= p.user.name %>
+            <%= p.theme %>
+        <% end %>
+    </div>
+
+</div>

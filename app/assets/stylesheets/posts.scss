@@ -118,11 +118,13 @@
   border: 1px solid black;
   position: relative;
   width: 27%;
+  height: 435px;
   margin-right: 5%;
   margin-bottom: 20px;
   .up_block {
     height: 43%;
-    background-color: aqua;
+    background-image: url(sumaho.jpeg);
+    background-size: cover;
   }
   .main_user_image {
     width: 90px;
