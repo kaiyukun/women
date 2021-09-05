@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @notifications = Notification.where(visited_id: current_user.id)
   end
 
   def create
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comments = @post.comments
     @comment = Comment.new
+    @notifications = Notification.where(visited_id: current_user.id)
   end
 
   def edit

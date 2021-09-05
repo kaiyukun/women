@@ -29,7 +29,10 @@
 </header>
 
 <div class="list">
-    <h2>投稿一覧</h2>
+    <div class="list__head">
+        <h2>投稿一覧</h2>
+        <%= link_to "新規投稿", new_post_path %>
+    </div>
     <% @posts.each do |p| %>
         <div class="list__main">
             <div class="list__user">
@@ -55,6 +58,4 @@
         <% end %>
     <% end %>
 </div>
-
-<%= link_to "メインページへ", main_posts_path %>
                 

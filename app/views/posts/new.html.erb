@@ -27,16 +27,18 @@
         </nav>
     </div>
 </header>
-<div class="post">
+<div class="new">
+    <div class="new__link">
+        <%= link_to '＜ 投稿一覧へ', posts_path %>
+    </div>
     <h2>新規投稿</h2>
-    <div class="post__main">
+    <div class="new__main">
         <%= form_with model:@post do |f| %>
             <div class="field">
                 <%= f.label :theme %>
-                <%= f.text_area :theme, class: "post__area" %>
+                <%= f.text_area :theme, class: "new__area" %>
             </div>
-            <%= f.submit :投稿, class: "btn shadow" %>
+            <%= f.submit :投稿, class: "new__btn" %>
         <% end %>
     </div>
 </div>
-<%= link_to '投稿一覧へ', posts_path %>
